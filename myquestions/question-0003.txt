@@ -1,0 +1,17 @@
+Energías Renovables: Predicción de Potencia Solar (Regresión)
+Tipo de problema: Aprendizaje Supervisado / Regresión (Sklearn/Numpy).
+
+Un parque solar necesita predecir cuántos Kilovatios (kW) generará según la radiación UV y la nubosidad. 
+A diferencia del CSV (que usa clasificación), aquí predeciremos un valor continuo.
+
+Nombre de la función: predecir_potencia_solar
+
+Nombre del generador: generar_caso_de_uso_predecir_potencia_solar
+
+Entrada: Un pd.DataFrame con variables independientes (radiacion_uv, indice_nubosidad, temperatura_panel) 
+y una variable dependiente continua (potencia_kw).
+
+Salida: Una tupla con el modelo entrenado y el error absoluto medio (MAE) obtenido en el test set.
+
+Reto: Usar RandomForestRegressor de sklearn para manejar relaciones no lineales.
+
