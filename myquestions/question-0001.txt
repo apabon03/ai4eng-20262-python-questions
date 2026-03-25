@@ -1,1 +1,42 @@
+# Caso de Uso: Ciberseguridad - Detección de Anomalías en Tráfico de Red
+
+## 1. Descripción del Problema
+En el ámbito de la seguridad informática, los picos repentinos y masivos de tráfico provenientes de fuentes específicas pueden ser un indicador de un ataque de denegación de servicio distribuido (**DDoS**). 
+
+Tu misión es desarrollar una herramienta de filtrado inteligente que analice registros de red para identificar direcciones IP cuyo comportamiento sea estadísticamente anómalo en comparación con el promedio global del tráfico registrado en el conjunto de datos.
+
+## 2. Especificaciones de la Función
+
+* **Nombre de la función:** `detectar_ataque_ddos`
+* **Librerías requeridas:** `pandas` y `numpy`.
+* **Nombre del generador asociado:** `generar_caso_de_uso_detectar_ataque_ddos`
+
+### Entrada (Inputs)
+La función debe recibir un único parámetro:
+* **`df` (pd.DataFrame):** Un conjunto de datos con los registros de red. El DataFrame contiene obligatoriamente las siguientes columnas:
+    * `ip_origen` (str): La dirección IP del dispositivo que envía los datos.
+    * `bytes_transmitidos` (int): La cantidad de datos enviados en ese registro.
+    * `timestamp` (datetime): La fecha y hora exacta del evento.
+
+### Salida (Outputs)
+* **`lista_ips` (list):** Una lista de strings que contiene las direcciones `ip_origen` únicas que han sido identificadas como sospechosas.
+
+## 3. Lógica del Reto
+Para resolver este problema, la función debe seguir estos pasos lógicos:
+1.  **Cálculo Estadístico:** Utilizar `numpy.std()` y `numpy.mean()` para obtener la desviación estándar ($\sigma$) y el promedio ($\mu$) de la columna `bytes_transmitidos` de **todo** el dataset.
+2.  **Definición del Umbral:** El umbral de anomalía se define como: 
+    **Umbral = Promedio + (3 * Desviación Estándar)**
+3.  **Filtrado:** Utilizar indexación booleana de `pandas` para identificar las filas donde `bytes_transmitidos` sea estrictamente mayor al umbral calculado.
+4.  **Extracción:** Retornar los valores únicos (sin duplicados) de las IPs que cumplieron la condición anterior en formato de lista.
+
+## 4. Ejemplo de Estructura de Datos (Input)
+
+| ip_origen | bytes_transmitidos | timestamp |
+| :--- | :--- | :--- |
+| 192.168.1.1 | 500 | 2023-10-27 10:00:00 |
+| 10.0.0.5 | 1200000 | 2023-10-27 10:00:05 |
+| 192.168.1.1 | 450 | 2023-10-27 10:00:10 |
+
+---
+*Nota: El generador de casos de uso creará un DataFrame con una cantidad aleatoria de registros e inyectará picos de tráfico de forma aleatoria para validar la robustez de tu solución.*
 
