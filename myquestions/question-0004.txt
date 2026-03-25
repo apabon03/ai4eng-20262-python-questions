@@ -1,0 +1,16 @@
+Calidad de Manufactura: Clasificación de Piezas por Dimensiones
+Tipo de problema: Clasificación Multiclase y Reducción de Dimensionalidad (Sklearn/Pandas).
+
+En una fábrica de tornillos, las piezas se clasifican en "Pequeña", "Mediana" o "Grande" según su largo, 
+ancho y peso. Sin embargo, los datos tienen muchas dimensiones redundantes.
+
+Nombre de la función: clasificar_piezas_produccion
+
+Nombre del generador: generar_caso_de_uso_clasificar_piezas_produccion
+
+Entrada: Un pd.DataFrame con múltiples medidas técnicas (float) y una columna categoria_final (0, 1 o 2).
+
+Salida: Un numpy.array con las predicciones del modelo para un set de nuevos datos.
+
+Reto: Integrar un Pipeline de sklearn que primero reduzca dimensiones
+con PCA (Principal Component Analysis) y luego clasifique con un KNeighborsClassifier.
