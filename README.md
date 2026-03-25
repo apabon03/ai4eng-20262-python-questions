@@ -1,2 +1,4 @@
 # ai4eng-20262-python-questions
-LLM1 Modelos y Simulación de Sistemas - UdeA - Systems Engineering
+
+Student: Andres Eduardo Pabon Roldan
+email: andres.pabon@udea.edu.co
