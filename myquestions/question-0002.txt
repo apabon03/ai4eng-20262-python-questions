@@ -1,0 +1,15 @@
+Retail: Sistema de Recomendación por Similitud (NLP Light)
+Tipo de problema: Aprendizaje No Supervisado / Similitud de Coseno (Sklearn/Pandas).
+
+Una librería quiere recomendar libros basados en la descripción de lo que el usuario ya leyó. 
+En lugar de usar modelos de clasificación, usaremos la "distancia" entre textos.
+
+Nombre de la función: recomendar_libros_similares
+
+Nombre del generador: generar_caso_de_uso_recomendar_libros_similares
+
+Entrada: Un pd.DataFrame con columnas titulo y descripcion (texto), y un string libro_buscado.
+
+Salida: Un pd.Series o lista con los 3 títulos de libros más similares al buscado.
+
+Reto: Usar TfidfVectorizer y cosine_similarity de sklearn.metrics.pairwise.
