@@ -1,16 +1,15 @@
-Calidad de Manufactura: Clasificación de Piezas por Dimensiones
-Tipo de problema: Clasificación Multiclase y Reducción de Dimensionalidad (Sklearn/Pandas).
+Importancia de Características por Permutación (Sklearn)
+El Problema:
+Quieres saber qué variables son realmente importantes para un modelo ya entrenado, sin importar si el modelo es una caja negra o no. Usaremos la técnica de permutación para medir cuánto cae el desempeño si barajamos una columna.
 
-En una fábrica de tornillos, las piezas se clasifican en "Pequeña", "Mediana" o "Grande" según su largo, 
-ancho y peso. Sin embargo, los datos tienen muchas dimensiones redundantes.
+Tu Misión:
+Escribe una función llamada calcular_importancia_permutacion(modelo, X_val, y_val) que:
 
-Nombre de la función: clasificar_piezas_produccion
+Utilice la función permutation_importance de sklearn.inspection.
 
-Nombre del generador: generar_caso_de_uso_clasificar_piezas_produccion
+Calcule la importancia sobre el conjunto de validación con 5 repeticiones (n_repeats=5).
 
-Entrada: Un pd.DataFrame con múltiples medidas técnicas (float) y una columna categoria_final (0, 1 o 2).
+Retorne un array con los valores promedio de importancia (importances_mean) para cada característica.
 
-Salida: Un numpy.array con las predicciones del modelo para un set de nuevos datos.
-
-Reto: Integrar un Pipeline de sklearn que primero reduzca dimensiones
-con PCA (Principal Component Analysis) y luego clasifique con un KNeighborsClassifier.
+Entrada: Modelo entrenado, X_val, y_val.
+Salida: np.ndarray con las importancias.
