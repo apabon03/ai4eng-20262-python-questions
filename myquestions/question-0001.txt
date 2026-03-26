@@ -1,8 +1,16 @@
-Detección de Micro-Tendencias Financieras (Pandas/Numpy)
-El Problema: En el trading de alta frecuencia, es vital identificar periodos donde la volatilidad supera la media móvil de forma repentina.
+Análisis de Elasticidad-Precio (Pandas & Numpy)
+El Problema:
+Una empresa de retail quiere entender cómo afectan los cambios de precio a la demanda de sus productos. Debes calcular la "Elasticidad Precio de la Demanda" utilizando el método de arco (punto medio) entre dos registros temporales.
 
-Función a crear: detectar_picos_volatilidad
+Tu Misión:
+Escribe una función llamada analizar_elasticidad_precio(df_precios) que:
 
-Entrada: Un pd.DataFrame con columnas ['timestamp', 'precio_cierre'].
+Reciba un DataFrame con exactamente dos filas y las columnas ['precio', 'cantidad'].
 
-Salida: Un pd.DataFrame que contenga solo las filas donde la diferencia entre el precio actual y el promedio de los últimos 5 periodos sea superior a 2 desviaciones estándar.
+Calcule la elasticidad usando la fórmula:
+e = ((Q2 - Q1) / ((Q2 + Q1) / 2)) / ((P2 - P1) / ((P2 + P1) / 2))
+
+Retorne un diccionario con el valor flotante de la elasticidad y una categoria ("Elástico" si el valor absoluto es > 1, de lo contrario "Inelástico").
+
+Entrada: pd.DataFrame con columnas precio (float) y cantidad (int).
+Salida: dict (Ejemplo: {'elasticidad': -1.5, 'categoria': 'Elástico'}).
