@@ -1,15 +1,15 @@
-Retail: Sistema de Recomendación por Similitud (NLP Light)
-Tipo de problema: Aprendizaje No Supervisado / Similitud de Coseno (Sklearn/Pandas).
+Ingeniería de Características Cíclicas (Pandas & Numpy)
+El Problema:
+Los modelos de Machine Learning no entienden por defecto que la hora 23 y la hora 00 están pegadas. Para solucionar esto, debemos proyectar la hora en un círculo usando funciones trigonométricas (seno y coseno).
 
-Una librería quiere recomendar libros basados en la descripción de lo que el usuario ya leyó. 
-En lugar de usar modelos de clasificación, usaremos la "distancia" entre textos.
+Tu Misión:
+Escribe una función llamada transformar_tempo_ciclico(df, col_hora) que:
 
-Nombre de la función: recomendar_libros_similares
+Reciba un DataFrame y el nombre de una columna que contiene la hora del día (0-23).
 
-Nombre del generador: generar_caso_de_uso_recomendar_libros_similares
+Cree dos nuevas columnas: hora_sin (seno) y hora_cos (coseno) usando la fórmula: 2 * pi * hora / 24.
 
-Entrada: Un pd.DataFrame con columnas titulo y descripcion (texto), y un string libro_buscado.
+Elimine la columna original col_hora y retorne el DataFrame resultante.
 
-Salida: Un pd.Series o lista con los 3 títulos de libros más similares al buscado.
-
-Reto: Usar TfidfVectorizer y cosine_similarity de sklearn.metrics.pairwise.
+Entrada: pd.DataFrame y str (nombre de columna).
+Salida: pd.DataFrame con dos nuevas columnas numéricas.
